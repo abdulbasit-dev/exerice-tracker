@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import DatePicker from 'react-date-picker'
 import {useHistory} from 'react-router-dom'
+import axios from 'axios'
 
 function CreateExercise() {
   const [username, setUsername] = useState('')
@@ -12,6 +13,12 @@ function CreateExercise() {
   const history = useHistory()
 
   useEffect(() => {
+    axios.get('http://localhost:5000/users').then(res => {
+      const users = res.data.map(user => user.username)
+      setUsers(users)
+      setUsername(users[0])
+    })
+
     setUsers(['ahmad', 'sara'])
     setUsername('ahmed')
   }, [])
@@ -19,6 +26,7 @@ function CreateExercise() {
   function handleSubmit(e) {
     e.preventDefault()
     const exercise = {username, description, duration, date}
+    axios.post('http://localhost:5000/exercises ', exercise).then(res => console.log(res.data))
     console.log(exercise)
     history.push('/')
   }

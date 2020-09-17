@@ -28,7 +28,7 @@ function CreateExercise() {
     const exercise = {username, description, duration, date}
     axios.post('http://localhost:5000/exercises ', exercise).then(res => console.log(res.data))
     console.log(exercise)
-    history.push('/')
+    window.location = '/'
   }
 
   return (

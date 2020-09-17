@@ -11,7 +11,7 @@ function Exercise({exercise, deleteExercie}) {
       <td>{duration}</td>
       <td>{date.substring(0, 10)}</td>
       <td>
-        <Link className='btn btn-secondary mr-2 btn-sm' to={`/edit/:${_id}`}>
+        <Link className='btn btn-secondary mr-2 btn-sm' to={`/edit/${_id}`}>
           Edit
         </Link>{' '}
         |{' '}

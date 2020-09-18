@@ -13,14 +13,14 @@ function EditExercise() {
   const {id} = useParams()
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/exercises/${id}`).then(res => {
+    axios.get(`https://exercise-tracker99.herokuapp.com/exercises/${id}`).then(res => {
       setUsername(res.data.username)
       setDescription(res.data.description)
       setDuration(res.data.duration)
       setDate(new Date(res.data.date))
     })
 
-    axios.get('http://localhost:5000/users').then(res => {
+    axios.get('https://exercise-tracker99.herokuapp.com/users').then(res => {
       const users = res.data.map(user => user.username)
       setUsers(users)
     })
@@ -30,7 +30,7 @@ function EditExercise() {
     e.preventDefault()
     const exercise = {username, description, duration, date}
     axios
-      .post(`http://localhost:5000/exercises/update/${id}`, exercise)
+      .post(`https://exercise-tracker99.herokuapp.com/exercises/update/${id}`, exercise)
       .then(res => console.log(res.data))
     console.log(exercise)
     window.location = '/'

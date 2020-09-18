@@ -7,14 +7,14 @@ function ExerciseList() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/exercises')
+      .get('https://exercise-tracker99.herokuapp.com/exercises')
       .then(res => setExercises(res.data))
       .catch(err => console.log(err))
   }, [])
 
   function deleteExercie(id) {
     axios
-      .delete(`http://localhost:5000/exercises/${id}`)
+      .delete(`https://exercise-tracker99.herokuapp.com/exercises/${id}`)
       .then(res => console.log(res.data))
       .catch(err => console.log(err))
 

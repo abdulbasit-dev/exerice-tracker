@@ -7,7 +7,9 @@ function CreateUser() {
   function handleSubmit(e) {
     e.preventDefault()
     const user = {username}
-    axios.post('http://localhost:5000/users', user).then(res => console.log(res.data))
+    axios
+      .post('https://exercise-tracker99.herokuapp.com/users', user)
+      .then(res => console.log(res.data))
     setUsername('')
   }
   return (

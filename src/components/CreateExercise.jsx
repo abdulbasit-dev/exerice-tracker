@@ -10,7 +10,7 @@ function CreateExercise() {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/users').then(res => {
+    axios.get('https://exercise-tracker99.herokuapp.com/users').then(res => {
       const users = res.data.map(user => user.username)
       setUsers(users)
       setUsername(users[0])
@@ -20,7 +20,9 @@ function CreateExercise() {
   function handleSubmit(e) {
     e.preventDefault()
     const exercise = {username, description, duration, date}
-    axios.post('http://localhost:5000/exercises ', exercise).then(res => console.log(res.data))
+    axios
+      .post('https://exercise-tracker99.herokuapp.com/exercises ', exercise)
+      .then(res => console.log(res.data))
     window.location = '/'
   }
 

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import DatePicker from 'react-date-picker'
-import {useHistory, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import axios from 'axios'
 
 function EditExercise() {
@@ -8,9 +8,8 @@ function EditExercise() {
   const [description, setDescription] = useState('')
   const [duration, setDuration] = useState(0)
   const [date, setDate] = useState(new Date())
-  const [users, setUsers] = useState([])
 
-  const history = useHistory()
+  const [users, setUsers] = useState([])
   const {id} = useParams()
 
   useEffect(() => {
@@ -25,7 +24,7 @@ function EditExercise() {
       const users = res.data.map(user => user.username)
       setUsers(users)
     })
-  }, [])
+  }, [id])
 
   function handleSubmit(e) {
     e.preventDefault()

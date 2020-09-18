@@ -5,8 +5,6 @@ import Exercise from './Exercise'
 function ExerciseList() {
   const [exercises, setExercises] = useState([])
 
-  console.log(exercises)
-
   useEffect(() => {
     axios
       .get('http://localhost:5000/exercises')
